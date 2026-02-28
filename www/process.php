@@ -20,6 +20,16 @@ if(!empty($errors)) {
     exit();
 }
 
+# интеграция API
+require_once 'ApiClient.php';
+$api = new ApiClient();
+
+$url = 'https://openlibrary.org/search.json?q=tolstoy'; // пример
+$apiData = $api->request($url);
+
+$_SESSION['api_data'] = $apiData;
+
+
 
 $_SESSION['username'] = $username;
 $_SESSION['number_of_ticket'] = $number_of_ticket;

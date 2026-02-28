@@ -10,6 +10,11 @@
 <?php endif; ?>
 
 
+<?php if((isset($_SESSION['api_data']))): ?>
+    <h3>Данные из API:</h3>;
+    <pre>"  <?= print_r($_SESSION['api_data'], true) ?> "</pre>;
+<?php endif; ?>
+
 <?php if(isset($_SESSION['username'])): ?>
     <p>Данные из сессии:</p>
     <ul>
@@ -18,7 +23,6 @@
         <li>Жанр: <?= $_SESSION['genre'] ?></li>
         <li>Электронная версия: <?= $_SESSION['subscribe'] ?></li>
         <li>Срок аренды: <?= $_SESSION['time'] ?></li>
-
     </ul>
 <?php else: ?>
     <p>Данных пока нет.</p>
